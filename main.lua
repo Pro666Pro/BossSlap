@@ -1,7 +1,7 @@
 local GameName = "Bob Bossfight Slap Farm - by nexer"
 
 local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shlexware/Orion/main/source')))()
-local Window = OrionLib:MakeWindow({IntroText = "farm slap safely", IntroIcon = "rbxassetid://15315284749",Name = GameName, HidePremium = false, SaveConfig = true, ConfigFolder = "Tutorial"})
+local Window = OrionLib:MakeWindow({IntroText = "farm slap safely lol", IntroIcon = "rbxassetid://15315284749",Name = GameName, HidePremium = false, SaveConfig = true, ConfigFolder = "Tutorial"})
 
 OrionLib:MakeNotification({Name = "Warning",Content = "Use at your own risk.",Image = "rbxassetid://7733658504",Time = 5})
 
@@ -11,8 +11,17 @@ local Script = Window:MakeTab({
 	PremiumOnly = false
 })
 
+Script:AddDropdown({
+	Name = "choose glove to hit with",
+	Default = "Killstreak",
+	Options = {"Killstreak", "Reaper", "God's Hand", "Tycoon"},
+	Callback = function(Value)
+GloveSlap = Value
+	end    
+})
+
 Script:AddToggle({
-	Name = "Start Farming",
+	Name = "start hit",
 	Default = false,
 	Callback = function(Value)
 		_G.Farm = Value
